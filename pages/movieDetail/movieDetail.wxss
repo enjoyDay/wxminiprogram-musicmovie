@@ -1,0 +1,103 @@
+/* pages/movieDetail/movieDetail.wxss */
+.movieDetailContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieVideo {
+  width: 100%;
+}
+
+.movieSeries {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-top: 1px solid #eee;
+  margin-top: 12rpx;
+  padding-top: 12rpx;
+}
+
+.movieName {
+  font-size: 26rpx;
+  margin-left: 24rpx;
+  padding: 4rpx;
+  vertical-align: middle;
+}
+.movieYear,
+.movieTV {
+  color: #666;
+  font-size: 24rpx;
+  margin-left: 24rpx;
+  padding: 4rpx;
+}
+
+.movieType {
+  font-size: 24rpx;
+  padding: 4rpx;
+  margin: 12rpx 24rpx;
+  color: #E64A19;
+}
+
+.episodes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center
+}
+
+.episode {
+  font-size: 23rpx;
+  margin: 6rpx 10rpx 6rpx 10rpx;
+  color: #FF6022;
+  padding: 10rpx 34rpx 10rpx 34rpx;
+  background-color: #F6F8FA;
+}
+
+.episode:active {
+  color: #fff;
+  background-color: #07C160;
+}
+
+.otherParseGap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-top: 1px solid #eee;
+  margin-top: 12rpx;
+  padding-top: 12rpx;
+}
+
+.otherParseMessage {
+  display: flex;
+  flex-direction: row;
+}
+
+.otherMovieTtile {
+  font-size: 26rpx;
+  margin-left: 24rpx;
+  padding: 4rpx;
+  vertical-align: middle;
+}
+
+.otherMovieType,
+.otherMovieShowName {
+  font-size: 24rpx;
+  color: #666;
+  margin-left: 24rpx;
+  padding: 4rpx;
+  vertical-align: middle
+}
+
+.episodeWarn {
+  color: #999;
+  font-size: 18rpx;
+  margin: 12rpx 0;
+}
+.picker{
+  padding: 12rpx;
+  background-color: #FF6022;
+  font-size: 26rpx;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+
+}

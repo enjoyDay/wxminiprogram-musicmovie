@@ -1,0 +1,41 @@
+<!--pages/music/music.wxml-->
+<view class="music-container">
+  <view class="search">
+    <mp-searchbar ext-class="searchBar" bindfocus="research" bindclear="research" bindinput="bindInput"
+      bindclear="bindClear" cancel="{{cancelButton}}">
+    </mp-searchbar>
+    <button class="searchButton" type="primary" style="width: 90rpx;" catchtap="searchMusic">搜索</button>
+  </view>
+
+  <view class="warn">
+    <!-- <image src="/images/other/volume_up_fill.png" class="warnImage"></image> -->
+    <text class="warnText">若部分解析通道搜索不到或者播放卡顿，可切换通道搜索播放</text>
+  </view>
+  <text wx:if="{{errorShow}}" class="errorInfo">{{errorInfo}}</text>
+
+  <text class="musciChannel">音乐渠道:</text>
+  <view class="chooseMusicTypeList">
+    <block wx:for="{{radioGroup}}" wx:key="index">
+      <view class="radioItem" catchtap="changeChooseIcon" data-index="{{item.index}}" data-value="{{item.value}}">
+        <icon type="{{item.type}}" size="18" class="radioIcon">
+        </icon>
+        <text class="radioText">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+
+
+  <view class="music-list" wx:if="{{!errorShow}}" wx:for="{{musicResult}}" wx:key="index">
+    <image src="{{item.pic}}" class="musicPic"></image>
+    <view class="music-info">
+      <text class="musicTitle">歌曲名:{{item.title}}</text>
+      <text class="musicAuthor">歌手:{{item.author}}</text>
+      <text class="musicType">来源:{{item.type}}</text>
+    </view>
+    <button catchtap="playMusic" data-item="{{item}}" class="playButton" type="primary"
+      style="width: 144rpx; ">播放</button>
+  </view>
+  <view wx:if="{{showLoadMoreFlag}}" class="loadMore">
+    <text catchtap="loadMore">载入更多</text>
+  </view>
+</view>

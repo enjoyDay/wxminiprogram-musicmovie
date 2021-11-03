@@ -1,0 +1,46 @@
+<!--pages/movie/movie.wxml-->
+<view class="movieContainer">
+  <view class="search">
+    <mp-searchbar ext-class="searchBar" bindfocus="research" bindclear="research" bindinput="bindInput"
+      bindclear="bindClear" cancel="{{cancelButton}}">
+    </mp-searchbar>
+    <button class="searchButton" type="primary" style="width: 90rpx;" catchtap="searchMovie">搜索</button>
+  </view>
+  <view class="warn">
+    <!-- <image src="/images/other/volume_up_fill.png" class="warnImage"></image> -->
+    <text class="warnText">若部分解析通道搜索不到或者播放卡顿，可切换通道搜索播放</text>
+  </view>
+
+  <text wx:if="{{errorShow}}" class="errorInfo">{{errorInfo}}</text>
+  <text class="movieChannel">电影渠道:</text>
+  <view class="chooseMovieTypeList">
+    <block wx:for="{{radioGroup}}" wx:key="index">
+      <view class="radioItem" catchtap="changeChooseIcon" data-index="{{item.index}}" data-value="{{item.value}}">
+        <icon type="{{item.type}}" size="18" class="radioIcon">
+        </icon>
+        <text class="radioText">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="playlistItem" wx:if="{{searchMovieResult && !errorShow}}" wx:for="{{movieList}}" wx:key="index">
+    <view class="movieList" wx:if="{{item.id}}">
+      <image src="{{item.figurePic}}" class="moviePic"></image>
+      <view class="movieInfo">
+        <text class="movieTitle" wx:if="{{item.title}}">{{item.title}}</text>
+        <view>
+          <text class="movieSub" wx:if="{{item.sub}}">{{item.sub}}</text>
+          <text class="movieScore" wx:if="{{item.score}}">评分：{{item.score}}</text>
+        </view>
+        <view>
+          <text class="movieChooseIconName" wx:if="{{chooseIconName}}">来源：{{item.originName}}</text>
+          <text class="movieType" wx:if="{{item.type}}"> {{item.type}}</text>
+          <text class="movieFigureCaptionr" wx:if="{{item.figureCaption}}">{{item.figureCaption}}</text>
+        </view>
+        <button catchtap="playMovie" data-item="{{item}}" class="playButton" type="primary"
+          style="width: 144rpx; ">播放</button>
+      </view>
+    </view>
+    <view class="movieDesc" wx:if="{{item.id}}">简介：{{item.desc}}</view>
+
+  </view>
+</view>

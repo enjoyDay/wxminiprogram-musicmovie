@@ -1,0 +1,51 @@
+<!--pages/movieDetail/movieDetail.wxml-->
+<view class="movieDetailContainer">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{channelArray}}" header-text="跳转指定解析通道">
+    <view class="picker">
+      当前选择解析通道：{{channelArray[index]}}       
+    <text style="float: right;">(点击此处可快速跳转)</text>
+    </view>
+  </picker>
+  <!-- 使用m1907解析播放 -->
+  <scroll-view scroll-y="true" style="height:{{systemInfo.windowHeight}}px;" scroll-into-view="{{viewId}}"
+    scroll-top="{{scrollTop}}">
+    <view wx:if="{{chooseChannelIndex ==0 }}">
+      <video id="id0" class="movieVideo" src="{{videoUrl}}"></video>
+      <view class="movieSeries" wx:for="{{movieData.data}}" wx:key="index">
+        <text class="movieType">纯净1</text>
+        <text class="movieName">{{item.name}}</text>
+        <text wx:if="{{movieData.type == 'movie'}}" class="movieTV">电影</text>
+        <text wx:if="{{movieData.type == 'tv'}}" class="movieTV">电视剧</text>
+        <text class="movieYear">年份：{{item.year}}</text>
+        <view class="episodes">
+          <block wx:for="{{item.source.eps}}" wx:key="index">
+            <text class="episode" catchtap="playMovie" data-play-url="{{item.url}}"
+              data-browser="{{false}}">{{item.name}}</text>
+          </block>
+        </view>
+        <text class="episodeWarn">注意：该解析通道点击某一集的按钮后，支持该页面播放</text>
+      </view>
+    </view>
+
+    <view wx:if="{{otherMovieParseData.length >0 }}">
+      <block wx:for="{{otherMovieParseData}}" wx:key="index">
+        <view class="otherParseGap" id="id{{index+1}}">
+          <text class="movieType">{{item.parseName}}</text>
+          <text class="otherMovieTtile">{{item.title}}</text>
+          <view class="otherParseMessage">
+            <text class="otherMovieType">{{item.type}}</text>
+            <text class="otherMovieShowName">{{item.showName}}</text>
+          </view>
+          <text class="movieYear">集数:{{item.totalEpisode}}</text>
+          <view class="episodes">
+            <block wx:for="{{item.episodeInfoList}}" wx:key="index">
+              <text class="episode" catchtap="playMovie" data-play-url="{{item.parseUrl}}"
+                data-browser="{{true}}">{{item.title}}</text>
+            </block>
+          </view>
+          <text class="episodeWarn">注意：该解析通道需要点击某一集的按钮后，打开浏览器复制链接播放，暂不支持该页面播放</text>
+        </view>
+      </block>>
+    </view>
+  </scroll-view>
+</view>

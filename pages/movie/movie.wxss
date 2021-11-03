@@ -1,0 +1,156 @@
+/* pages/movie/movie.wxss */
+.movieContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.errorInfo {
+  color: #fff;
+  background-color: #DD514C;
+  margin-top: 12rpx;
+  padding-left: 12rpx;
+}
+
+.warn {
+  background-color: #FF6022;
+  padding-left: 12rpx;
+  margin-top: 14rpx;
+}
+.warnImage {
+  width: 18px;
+  height: 18px;
+  vertical-align:middle;
+  line-height:26px
+}
+.warnText {
+  font-size: 24rpx;
+  color: #fff;
+  /* margin-left: 14rpx; */
+  line-height:26px
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchBar {
+  width: 87vw;
+  height: 40px;
+  padding: 0;
+}
+
+.searchButton {
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  margin-top: 6rpx;
+  line-height: 70rpx;
+  height: 70rpx;
+}
+
+.playlistItem {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10rpx;
+}
+
+.movieList {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  width: 400rpx;
+}
+
+.moviePic {
+  width: 136rpx;
+  height: 136rpx;
+  margin-right: 20rpx;
+}
+
+/* 标题 */
+.movieTitle {
+  font-size: 28rpx;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movieScore {
+  font-size: 24rpx;
+  color: #FF6022;
+  font-weight: bold;
+  margin-left: 14rpx;
+}
+
+/* '(普通话版/TV版/2021)' */
+.movieSub {
+  font-size: 24rpx;
+  color: #666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 来源 */
+.movieChooseIconName {
+  font-size: 24rpx;
+  color: #333;
+}
+
+/* 动漫 */
+.movieType {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 14rpx;
+}
+
+/* 全13集 */
+.movieFigureCaptionr {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 14rpx;
+}
+/* 简介 */
+.movieDesc {
+  font-size: 24rpx;
+  color: #333;
+  margin-top: -36rpx;
+  padding: 20rpx;
+}
+
+.movieChannel {
+  margin-left: 12rpx;
+  margin-top: 14rpx;
+}
+
+.chooseMovieTypeList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.radioItem {
+  margin: 4rpx 0 4rpx 18rpx;
+}
+
+.radioText {
+  margin-left: 6rpx;
+  vertical-align: middle
+}
+
+.playButton {
+  position: absolute;
+  font-size: 30rpx;
+  right: 24rpx;
+  top: 60rpx;
+  padding: 10rpx;
+}
